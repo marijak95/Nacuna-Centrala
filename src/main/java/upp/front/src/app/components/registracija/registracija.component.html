@@ -1,22 +1,53 @@
-<form class="form" #f="ngForm" (ngSubmit)="onSubmit(f.value, f)" ngNativeValidate>
-  <br />
-  <br />
-  <h2 class="form-heading">Registracija</h2>
+<div class="container py-3">
+  <div class="row">
+      <div class="mx-auto col-sm-6">
+                  <!-- form user info -->
+                  <div class="card" style="background-color:transparent;">
+                      <div class="card-header">
+                          <h4 class="mb-0 slovaH">Registracija </h4>
+                      </div>
+                      <div class="card-body">
+                          <form #f="ngForm" (ngSubmit)="OnSubmit(f.value, f)" class="form" role="form" autocomplete="off" novalidate>
+                              <div class="form-group row"> 
+                                  <label for="Ime" class="col-lg-3 col-form-label form-control-label">Ime</label>
+                                  <div class="col-lg-9" >
+                                      <input class="form-control" name="Ime" #Ime="ngModel" ngModel type="text" placeholder="ime" required autofocus>                             
+                                  </div>
+                              </div>
 
-    <div class="input-group mb-3">
-      
-      <label for="ime"><b>Ime</b></label>
-      <input type="text" placeholder="Ime" name="ime" required> 
+                              <div class="form-group row">
+                                  <label for="Prezime" class="col-lg-3 col-form-label form-control-label">Prezime</label>
+                                  <div class="col-lg-9">
+                                      <input class="form-control" name="Prezime" #Prezime="ngModel" ngModel type="text" placeholder="prezime" required autofocus>
+                                  </div>
+                              </div>
 
-      <label for="prezime"><b>Prezime</b></label>
-      <input type="text" placeholder="Prezime" name="prezime" required> 
+                              <div class="form-group row">
+                                  <label for="Korisnicko_ime" class="col-lg-3 col-form-label form-control-label">Korisnicko ime</label>
+                                  <div class="col-lg-9">
+                                      <input class="form-control" name="Korisnicko_ime" #Korisnicko_ime="ngModel" ngModel type="text" placeholder="Korisnicko ime" required autofocus>
+                                  </div>
+                              </div>
 
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Email" name="email" required> 
+                              
+                              <div class="form-group row">
+                                  <label for="Lozinka" class="col-lg-3 col-form-label form-control-label">Lozinka</label>
+                                  <div class="col-lg-9">
+                                          <div class="text-danger"></div>
+                                      <input class="form-control" name="Lozinka" #Lozinka="ngModel" ngModel type="password" value="aaa" placeholder="lozinka" required autofocus>
+                                
+                                  </div>
+                              </div>
 
-      <label for="password"><b>Password</b></label>
-      <input type="text" placeholder="Password" name="password" required> 
-    </div>
-  <button id="signupButton" [disabled]="f.form.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Sign
-    up</button>
-</form>
+                              <div class="form-group row">
+                                  <label class="col-lg-3 col-form-label form-control-label"></label>
+                                  <div class="col-lg-9">
+                                      <input type="submit" class="btn btn-success" value="Register" [disabled]="f.invalid">
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+      </div>
+  </div>
+</div>

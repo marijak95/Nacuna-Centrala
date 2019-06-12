@@ -1,44 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
-import { enableProdMode } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { RegistracijaComponent } from './components/registracija/registracija.component';
-import { RegistracijaService } from './services/registracija.service';
-import { environment } from 'src/environments/environment';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-
-const Routes=[
-  {
-    path: "home",
-    component: RegistracijaComponent
-  }
-]
 
 
-if (environment.production) {
-  enableProdMode();
-}
+
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { AuthorsThesesComponent } from './authors-theses/authors-theses.component';
+import { ThesesComponent } from './theses/theses.component';
+import { ReviewerCommentsComponent } from './reviewer-comments/reviewer-comments.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistracijaComponent
+    LoginComponent,
+    TasksComponent,
+    AuthorsThesesComponent,
+    ThesesComponent,
+    ReviewerCommentsComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(Routes)
+    ReactiveFormsModule
   ],
-  providers: [
-    RegistracijaService
-
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

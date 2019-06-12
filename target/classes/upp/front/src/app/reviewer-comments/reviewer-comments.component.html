@@ -1,0 +1,31 @@
+<div class="d-flex align-items-start">
+  <a routerLink="/tasks" class="btn btn-warning">Back</a>
+</div>
+
+
+<div align="center">
+  <h4>Komentari recenzenata</h4>
+  <br />
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Recenzent</th>
+        <th>Komentar</th>
+        <th *ngIf="isUrednik()">Komentar za urednika</th>
+        <th>Prihvatanje sugestije</th>
+        <th>Datum recenzije</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let review of reviews">
+        <td>{{review.recenzent.Ime}} {{review.recenzent.Prezime}}</td>
+        <td>{{review.KomentarAutoru}}</td>
+        <td *ngIf="isUrednik()">{{review.KomentarUredniku}}</td>
+        <td>{{review.StatusRada}}</td>
+        <td>{{review.date | date: 'dd/MM/yyyy hh:mm'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

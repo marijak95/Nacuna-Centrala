@@ -1,22 +1,44 @@
 package upp.backend.model;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "korisnik")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Korisnik {
 	
-	public String Id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long Id;
 	
+	
+	@Column
 	public String Ime;
 	
+	@Column
 	public String Prezime;
 
-	public String Email;
+	@Column
+	public String email;    //username = email
 	
-	public String Password;
+	@Column
+	public String password;
+	
+	public Korisnik() {
+	}
 
-	public String getId() {
+	public Korisnik(String ime, String prezime, String email, String password) {
+		super();
+		Ime = ime;
+		Prezime = prezime;
+		this.email = email;
+		this.password = password;
+	}
+
+	public Long getId() {
 		return Id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		Id = id;
 	}
 
@@ -37,38 +59,24 @@ public class Korisnik {
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		Password = password;
-	}
-
-	public Korisnik(String id, String ime, String prezime, String email, String password) {
-		super();
-		Id = id;
-		Ime = ime;
-		Prezime = prezime;
-		Email = email;
-		Password = password;
+		this.password = password;
 	}
 	
-	public Korisnik() {
-		super();
-		Id = "";
-		Ime = "";
-		Prezime = "";
-		Email = "";
-		Password = "";
-	}
+	
+	
+	
 	
 	
 }

@@ -1,0 +1,33 @@
+<form #f="ngForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+  <p class="h4 mb-4">Registracija</p>
+  
+  <div class="d-flex justify-content-center">
+    <input type="text" name="ime" [(ngModel)]="model.Ime" placeholder="Ime" class="form-control mb-4 w-50">
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <input type="text" name="prezime" [(ngModel)]="model.Prezime" placeholder="Prezime" class="form-control mb-4 w-50">
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <input type="text" name="grad" [(ngModel)]="model.grad" placeholder="Grad" class="form-control mb-4 w-50">
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <input type="text" name="drzava" [(ngModel)]="model.Drzava" placeholder="Drzava" class="form-control mb-4 w-50">
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <input type="text" name="eMail" [(ngModel)]="model.email" placeholder="Email" class="form-control mb-4 w-50">
+  </div>
+
+  <div class="d-flex justify-content-center">
+
+    <input type="password" name="password" [(ngModel)]="model.password" placeholder="Password" class="form-control mb-4 w-50">
+  </div>
+
+  <br/>
+
+  <button class="btn btn-info" type="submit">Registruj me</button>
+
+</form>

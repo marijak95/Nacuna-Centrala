@@ -1,0 +1,55 @@
+<div class="d-flex">
+
+  <div class="mr-auto p-2">
+    <button *ngIf="isAutor()" (click)="publish()" class="btn btn-info"> Objavi rad </button>
+  </div>
+  <div class="p-2">
+    <button *ngIf="isAutor()" (click)="myTheses()" class="btn btn-info"> Moji radovi </button>
+    <button *ngIf="!isAutor()" (click)="allTheses()" class="btn btn-info"> Radovi </button>
+
+    <button (click)="logout()" class="btn btn-warning"> Logout </button>
+  </div>
+</div>
+
+<div align="center">
+  <h4>Tasks:</h4>
+  <br />
+
+  <table class="table w-50">
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{task.name}}</td>
+        <td align="right"><button (click)="doTask(task.taskId)" class="btn btn-info">Do Task</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <br />
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
+
+    <table class="table w-50">
+      <tbody>
+
+        <tr *ngFor="let field of formFields">
+          <td>{{field.label}}</td>
+
+          <td align="right">
+            <input type="text" name={{field.id}} ngModel *ngIf="field.type.name=='string'">
+            <input type="checkbox" name={{field.id}} ngModel *ngIf="field.type.name=='boolean'">
+            <input type="number" name={{field.id}} ngModel *ngIf="field.type.name=='long'">
+            <select name={{field.id}} class="w-75" ngModel *ngIf="field.type.name=='enum'">
+              <option *ngFor="let val of enumValues" value={{val}}>
+                {{field.type.values[val]}}
+              </option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+    <div *ngIf="formFields">
+      <button class="btn btn-info" type="submit">Submit Task</button>
+    </div>
+  </form>
+
+</div>
